@@ -1,0 +1,16 @@
+.main-div {
+  text-align: center;
+  padding-top: 50px;
+  /* background-color: #758283;
+  height: 100vh; */
+}
+
+.second-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  padding-bottom: 20px;
+}
