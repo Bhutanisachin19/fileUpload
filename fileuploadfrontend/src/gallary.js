@@ -195,11 +195,16 @@ const Gallary = () => {
         <Row>
           {gallaryImages.map((image) => (
             <Col>
-              {console.log("Image Recieved", image)}
-              <Card style={{ width: "30em", backgroundColor: "black" }}>
+              <Card
+                className="Main-Card"
+                // style={{
+                //   backgroundColor: "black",
+                // }}
+              >
                 <Card.Body /*className="zoom"*/>
                   {type && type == "Images" ? (
                     <img
+                      className="card-content-image"
                       onClick={() => {
                         // history.push(`${BACKEND_URL}${image.displayName}`)
                         const win = window.open(
@@ -209,13 +214,13 @@ const Gallary = () => {
                         win.focus();
                       }}
                       src={`${BACKEND_URL}${image.displayName}`}
-                      style={{ width: "450px" }}
+                      // style={{ width: "420px" }}
                     />
                   ) : null}
 
                   {type && type == "Video" ? (
                     <video
-                      width="100%"
+                      className="card-content-video"
                       autoPlay={false}
                       mute={false}
                       type="video/mp4"
