@@ -100,11 +100,13 @@ img {
   color: red;
 }
 
+/*
 .Main-Card {
   width: 450px;
   margin: 5px;
   background-color: #000 !important;
 }
+*/
 
 video {
   width: 100%;
@@ -114,6 +116,7 @@ video {
   width: 100%;
 }
 
+/*
 @media screen and (max-width: 980px) {
   .Main-Card {
     background-color: black !important;
@@ -176,3 +179,4 @@ video {
     width: 250px;
   }
 }
+*/

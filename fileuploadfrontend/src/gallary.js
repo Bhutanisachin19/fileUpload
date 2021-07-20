@@ -194,12 +194,12 @@ const Gallary = () => {
 
         <Row>
           {gallaryImages.map((image) => (
-            <Col>
+            <Col sm="12" md="4" lg="6">
               <Card
-                className="Main-Card"
-                // style={{
-                //   backgroundColor: "black",
-                // }}
+                //className="Main-Card"
+                style={{
+                  backgroundColor: "black",
+                }}
               >
                 <Card.Body /*className="zoom"*/>
                   {type && type == "Images" ? (
