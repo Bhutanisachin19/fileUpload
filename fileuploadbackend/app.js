@@ -43,7 +43,9 @@ mongoose.connect(mongoURI, {
 });
 */
 
-const conn = mongoose.createConnection(mongoURI); //to handle multiple connections
+const conn = mongoose.createConnection(mongoURI, () => {
+  console.log("Connected Successfully to DB");
+}); //to handle multiple connections
 
 // Init gfs
 let gfs;

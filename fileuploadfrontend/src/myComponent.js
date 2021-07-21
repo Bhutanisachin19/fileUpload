@@ -8,13 +8,17 @@ import { BACKEND_URL } from "./backEndKey";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { CircularProgress } from "@material-ui/core";
+
 toast.configure();
 
 const MyComponent = ({ showh2 }) => {
   const [image, setImage] = useState();
+  const [loader, setLoader] = useState(false);
 
   const fileUpload = () => {
     const formData = new FormData();
+    setLoader(true);
 
     // console.log("image", image);
 
@@ -25,6 +29,7 @@ const MyComponent = ({ showh2 }) => {
         .then((res) => {
           toast("File Uploaded Successfully");
           setImage();
+          setLoader(false);
           document.getElementById("file-type").value = "";
         })
         .catch((err) => {
@@ -76,6 +81,10 @@ const MyComponent = ({ showh2 }) => {
             </Col>
           </Row>
         </div>
+      </div>
+
+      <div className="circularProgress-div">
+        {loader && <CircularProgress size={70} />}
       </div>
     </>
   );
