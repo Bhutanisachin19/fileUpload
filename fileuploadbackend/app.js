@@ -19,7 +19,7 @@ const app = express();
 //Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(methodOverride("_method"));
+// app.use(methodOverride("_method"));
 
 //DB connection
 

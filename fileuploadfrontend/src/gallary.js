@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import {
   Card,
@@ -14,6 +14,8 @@ import { BACKEND_URL } from "./backEndKey";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyComponent from "./myComponent";
+
+import { saveAs } from "file-saver";
 
 toast.configure();
 
@@ -69,14 +71,6 @@ const Gallary = () => {
     getAllImage(type);
   }, [type]);
 
-  /*
-  useEffect(() => {
-    console.log("gallary Reload");
-    console.log("Image Data", imageData);
-    console.log("Password ", pass);
-  }, [pass, imageData]);
-  */
-
   const deleteImage = () => {
     // console.log("Image To Be deleted is ", imageData);
 
@@ -101,6 +95,10 @@ const Gallary = () => {
     } else {
       toast.warning("Please enter the password");
     }
+  };
+
+  const saveFile = (fileURL) => {
+    saveAs(fileURL, fileURL); //1st parameter is the image url and 2nd is the file name after download
   };
 
   return (
@@ -265,8 +263,19 @@ const Gallary = () => {
                     </div>
                   ) : null}
                 </Card.Body>
-                <Button variant="danger" onClick={() => handleShow(image)}>
+                <Button
+                  className="button-on-card"
+                  variant="danger"
+                  onClick={() => handleShow(image)}
+                >
                   Delete
+                </Button>
+
+                <Button
+                  variant="light"
+                  onClick={() => saveFile(`${BACKEND_URL}${image.displayName}`)}
+                >
+                  Download
                 </Button>
               </Card>
             </Col>
